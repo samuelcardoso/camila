@@ -49,6 +49,13 @@
 			player.setInputCanvas( "renderSurface" );
 			player.setMaterialSelector( "materialSelector" );
 			
+			// Print
+			setInterval( function()
+			{
+				debugger;
+				console.debug(world);
+			}, 1000);
+
 			// Render loop			
 			setInterval( function()
 			{
