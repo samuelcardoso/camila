@@ -32,8 +32,12 @@
 		<script type="text/javascript">			
 			// Create a new flat world
 			var world = new World( 16, 16, 16 );
-			world.createFlatWorld( 6 );
-			
+			const state = world.loadFromFile('camila.txt');
+
+			if(!state) {
+				world.createFlatWorld( 6 );
+			}
+
 			// Set up renderer
 			var render = new Renderer( "renderSurface" );
 			render.setWorld( world, 8 );
@@ -49,12 +53,11 @@
 			player.setInputCanvas( "renderSurface" );
 			player.setMaterialSelector( "materialSelector" );
 			
-			// Print
+			// Save on LocalStorage
 			setInterval( function()
 			{
-				debugger;
-				console.debug(world);
-			}, 1000);
+				world.saveToFile('camila.txt');
+			}, 10000);
 
 			// Render loop			
 			setInterval( function()
